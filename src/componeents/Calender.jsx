@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function Calender() {
   // 1. 현재의 년월일 조회
   let d = new Date();
@@ -19,8 +20,10 @@ function Calender() {
   return (
     <div className="calender">
       <header>
-        <h2>{year}</h2>
-        <span>{month+1}월</span>
+        <div className='yearMonth'>
+          <h2>{year}</h2>
+          <h3>{month+1}월</h3>
+        </div>
         <ul className='day'>
           <li>일</li>
           <li>월</li>
@@ -31,6 +34,7 @@ function Calender() {
           <li>토</li>
         </ul>
       </header>
+
       <main>
       <ul className="date">
           {
