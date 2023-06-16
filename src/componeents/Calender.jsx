@@ -21,7 +21,7 @@ function Calender() {
       <header>
         <h2>{year}</h2>
         <span>{month+1}월</span>
-        <ul>
+        <ul className='day'>
           <li>일</li>
           <li>월</li>
           <li>화</li>
@@ -32,7 +32,16 @@ function Calender() {
         </ul>
       </header>
       <main>
-        달력
+      <ul className="date">
+          {
+            Array(lastDate).fill().map((_,i)=>{
+              return (
+                <li key={i}>{i+1}</li>
+              )
+            })
+           
+          }
+        </ul>
       </main>
     </div>
   )
