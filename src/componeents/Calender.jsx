@@ -1,13 +1,16 @@
 import React from 'react'
 
 
-function Calender() {
+function Calender(props) {
+  // today
+  const tYear = new Date().getFullYear();
+  const tMonth = new Date().getMonth();
+  const tDate = new Date().getDate();
+
   // 1. 현재의 년월일 조회
-  let d = new Date();
-  let year = d.getFullYear();
-  let month = d.getMonth();
-  let date = d.getDate();
-  console.log("오늘 : ",year,month+1,date);
+  let year = props.year;
+  let month = props.month;
+  let date = props.date;
 
   // 2. 해당 월의 말일 구하기
   let lastDate = new Date(year,month+1,0).getDate();
@@ -16,6 +19,8 @@ function Calender() {
   // 3. 달력에서 시작할 위치(요일)
   let start_date = new Date(year, month, 1).getDay();
   console.log("시작요일 : " +start_date);
+
+  
 
   return (
     <div className="calender">
@@ -37,10 +42,29 @@ function Calender() {
 
       <main>
       <ul className="date">
+        {
+          Array(start_date).fill().map((_,i) => {
+            return (
+              <li key={i}></li>
+            )
+          })
+        }
           {
             Array(lastDate).fill().map((_,i)=>{
               return (
-                <li key={i}>{i+1}</li>
+                <li 
+                  style={{
+                    color : (i+start_date+1) % 7 == 1? "red" : 
+                            (i+start_date+1) % 7 == 0? "blue" : null }}
+                  key={i}
+                  className={(
+                    tDate==(i+1) && 
+                    tMonth==month && 
+                    tYear==year)?  "today" 
+                    : ((i+1)==28 && month==3)? "birthday" : null}  
+                  >
+                    {i+1}
+                </li>
               )
             })
            
