@@ -1,13 +1,13 @@
 import React from 'react'
 
 
-function Calender(props) {
+function Calendar(props) {
   // today
   const tYear = new Date().getFullYear();
   const tMonth = new Date().getMonth();
   const tDate = new Date().getDate();
 
-  // 1. 현재의 년월일 조회
+  // 1. 현재의 년월일 조회 (prps에서 년월일 가져오기)
   let year = props.year;
   let month = props.month;
   let date = props.date;
@@ -75,4 +75,4 @@ function Calender(props) {
   )
 }
 
-export default Calender
+export default Calendar

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import Calender from './componeents/Calender';
+import Calendar from './componeents/Calendar';
 import Header from './componeents/Header';
 
 function App() {
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth());
   const [date, setDate] = useState(new Date().getDate());
-  console.log("app날짜:", year,month);
+  // console.log("app날짜:", year,month);
 
   const prevMonth = () => {
     if (month == 0) {
@@ -32,7 +32,7 @@ function App() {
       <Header />
       <div className='layout'>
         <button className='chMonth' onClick={prevMonth}>◀</button>
-        <Calender year={year} month={month} date={date}/>
+        <Calendar year={year} month={month} date={date}/>
         <button className='chMonth' onClick={nextMonth}>▶</button>
       </div>
      
