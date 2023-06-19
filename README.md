@@ -1,4 +1,4 @@
-# calender-app
+# calendar-app
 - 리액트로 만든 달력 앱
 ## 기능
 - 월 변경
